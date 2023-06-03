@@ -8,5 +8,6 @@ public class Main {
 		Tabuleiro t1 = new Tabuleiro(scan.nextInt(),scan.nextInt(),scan.nextInt());
 		Jogar jogo1 = new Jogar(t1);
 		jogo1.iniciarJogo();
+		//final
 	}
 }

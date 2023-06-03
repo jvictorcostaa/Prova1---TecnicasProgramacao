@@ -6,15 +6,15 @@ public class Componentes {
 	private boolean podePontuar;
 	
 	public Componentes() {
-		this.tipo=null;
-		this.pontos=0;
-		this.podePontuar = false;
+		this.tipo = null;
+		this.pontos = 0;
+		this.podePontuar = true;
 	}
 	
 	public Componentes(String tipo, int pontos) {
 		this.tipo=tipo.toLowerCase();
 		this.pontos=pontos;
-		podePontuar=true;
+		podePontuar = true;
 	}
 	
 	public boolean isPodePontuar() {

@@ -80,7 +80,7 @@ public class Tabuleiro {
 	public boolean fimDeJogo() {
 		int contAlu = 0;
 		for (Celula celula : plano) {
-			if(celula.comp.checarComponenteAluno() && celula.comp.isPodePontuar()) {
+			if(celula.comp.checarComponenteAluno() && !(celula.comp.isPodePontuar())) {
 				contAlu++;
 			}
 		}
@@ -106,22 +106,13 @@ public class Tabuleiro {
 			if(celula.posX == roboX && celula.posY == roboY) {
 				celula.removeCelulaRobo(robo);
 			}				
-//			if(celula.posY == roboY - y && celula.posX == roboX) {
-//				celula.setTemRobo(true);
-//				celula.setCelulaRobo(robo);
-//			}
 		}
 		return roboY-y;
 	}
 	public int movimentarDireita(int roboX,int roboY,int x,RoboInicial robo) {
 		for (Celula celula : plano) {
 			if(celula.posX == roboX && celula.posY == roboY) {
-				//celula.removeCelulaRobo(robo);
 			}
-//			if(celula.posY == roboY && celula.posX == roboX + x) {
-//				celula.setTemRobo(true);
-//				celula.setCelulaRobo(robo);
-//			}
 		}
 		return roboX+x;
 	}
@@ -130,25 +121,16 @@ public class Tabuleiro {
 			if(celula.posX == roboX && celula.posY == roboY) {
 				celula.removeCelulaRobo(robo);
 			}
-//			if(celula.posY == roboY + y && celula.posX == roboX) {
-//				celula.setTemRobo(true);
-//				celula.setCelulaRobo(robo);
-//			}
 		}
 		return roboY+y;
 	}
 	public int movimentarEsquerda(int roboX,int roboY,int x,RoboInicial robo) {
 		for (Celula celula : plano) {
 			if(celula.posX == roboX && celula.posY == roboY) {
-			//	celula.removeCelulaRobo(robo);
-			}
-//			if(celula.posY == roboY && celula.posX == roboX - x) {
-//				celula.setTemRobo(true);
-//				celula.setCelulaRobo(robo);
-//			}
 		}
-		return roboX-x;
 	}
+		return roboX-x;
+}
 	public void relatorioRodada(int rodada) {
 		for(RoboInicial robo : robos) {
 			System.out.println("O robo "+robo.getNome()+" tem "+robo.getPontuaçao()+"na rodada "+rodada);
@@ -158,11 +140,12 @@ public class Tabuleiro {
 		String ganhador = null;
 		for (RoboInicial robo : robos){
 			for(int i = 0;i<robo.coordenadaX.size();i++) {
-				System.out.print("["+robo.coordenadaX.get(i)+","+robo.coordenadaY.get(i)+"] ");
+				System.out.print("O robo "+robo.getClass().getSimpleName()+" "+robo.getNome()+" andou nas celulas"
+						+ " ["+robo.coordenadaX.get(i)+","+robo.coordenadaY.get(i)+"]");
 			}
 			//pontuacao
 			int temp = 0;
-			 System.out.println("O robo "+robo.getClass().getSimpleName()+" "+robo.getNome()+" pontuou :"+robo.getPontuaçao());
+			 System.out.println("e pontuou: " +robo.getPontuaçao());
 			if(robo.getPontuaçao()>temp)
 				ganhador = robo.getNome();
 			System.out.println("Encontrou: "+robo.getAluFind() +" Alunos e " +robo.getBugFind()+" Bugs");
@@ -172,10 +155,4 @@ public class Tabuleiro {
 	public void setRoboPlano(RoboInicial robo) {
 		robos.add(robo);
 	}
-//	public void celulaDoRobo(int roboX,int roboY,RoboInicial robo) {
-//		for (Celula celula : plano) {
-//			if(roboX == celula.posX && roboY == celula.posY)
-//				celula.setCelulaRobo(robo);
-//		}
-//	}
 }

@@ -25,7 +25,7 @@ public class Celula {
 	public String imprimirCelula() {
 		if(temRobo)
 			return (celulaRobo.get(celulaRobo.size()-1).getIcone()+" ");
-		else if(tinhaRobo || true) {
+		else if(tinhaRobo) {
 			if(comp.checarComponenteAluno() || comp.checarComponenteBug())
 				return (comp.imprimirComponente()+" ");
 			else
